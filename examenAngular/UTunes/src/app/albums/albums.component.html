@@ -1,0 +1,17 @@
+
+<div class="row">
+  <div (click)="onClick(album);" class="card col-sm-3 my-1 mx-4" *ngFor="let album of albumsList">
+    <div class="card-body">
+      <h2 class="card-title">
+          <a routerLink="/Utunes/{{album.id}}">
+            {{album.name}}
+          </a>
+      </h2>
+      Artista: <p>{{album.artist}}</p>
+    </div>
+    <div class="card-text">
+    <ul>
+    </ul>
+    </div>
+  </div>
+</div>

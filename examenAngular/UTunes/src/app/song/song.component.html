@@ -1,0 +1,50 @@
+<div *ngIf="songs" class="row">
+    <div *ngIf="album" class="col-md-6">
+        <div class="card my-3" >
+            <div class="card-body">
+                <h2 class="card-title">
+                    {{album.name}}
+                </h2>
+            </div>
+            <div class="card-text">
+                <ul>
+                    <li>{{album.review}}</li>
+                </ul>
+                <ul>
+                    <li>Canciones Totales: {{totalSongs}}</li>
+                </ul>
+                <ul>
+                    <li>Precio Total: {{precioTotal}}</li>
+                </ul>
+                <ul>
+                    <li>Likes: {{album.likes}}</li>
+                </ul>
+            </div>
+            <div>
+                <button (click)="megusta()">Me gusta</button>
+                <button (click)="nomegusta()">No me gusta</button>
+            </div>
+          </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card my-3">
+        <div class="card-body">
+          <input type="text" class="form-control mb-2" placeholder="Buscar canción por nombre..." [(ngModel)]="searchText">
+          <div *ngFor="let song of filteredSongs">
+            <div class="card-body">
+                <h3 class="card-title">
+                    {{song.name}}
+                </h3>
+                <div class="card-text form-group">
+                    <label for="artist">Artista:</label>
+                    <input type="text" id="artist" [value]="song.artist" class="form-control mb-2" readonly>
+                    <label for="price">Precio:</label>
+                    <input type="number" id="price" [value]="song.price" class="form-control" readonly>
+                </div>
+                <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
